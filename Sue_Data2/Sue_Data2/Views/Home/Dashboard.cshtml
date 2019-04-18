@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Suec_Data2.Models.DataModel>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+</head>
+<body>
+    <div>
+        <table border="1">
+            <span id="spanA">
+                <tr>
+                    <td>Date</td>
+                    <td>Ticket</td>
+                    <td>Response Minutes</td>
+                    <td>Ticket Sum </td>
+                    <td>All Response Minutes</td>
+                    <td>Averge Response Minutes </td>
+                </tr>
+                @if (Model != null)
+                {
+                    foreach (var item in Model)
+                    {
+                <tr>
+                    <td> @Html.DisplayFor(modelItem => item.Date)</td>
+                    <td> @Html.DisplayFor(modelItem => item.Ticket)</td>
+                    <td> @Html.DisplayFor(modelItem => item.ResponseMinutes)</td>
+                    <td> @Html.DisplayFor(modelItem => item.TicketSum)</td>
+                    <td> @Html.DisplayFor(modelItem => item.RespositeTime)</td>
+                    <td> @Html.DisplayFor(modelItem => item.day) 天 @Html.DisplayFor(modelItem=>item.hr) 小時 @Html.DisplayFor(modelItem=>item.minute) 分鐘 </td>
+                </tr>
+                    }
+                }
+
+            </span>
+        </table>
+    </div>
+</body>
+</html>
