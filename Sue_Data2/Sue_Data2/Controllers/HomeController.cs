@@ -22,6 +22,7 @@ namespace Sue_Data2.Controllers
             int TicketTotal = 0;
             int TimeTotal = 0;
             int AvergeTotal = 0;
+            int Count = 0;
 
             switch (listnumber)
             {
@@ -37,9 +38,10 @@ namespace Sue_Data2.Controllers
                     }
                     foreach (var item in list1)
                     {
+                        Count = Count + 1;
                         TimeTotal = TimeTotal + item.ResponseMinutes;
                         item.RespositeTime = TimeTotal; //回應時間相加                     
-                        item.AvergeTime = item.RespositeTime / item.TicketSum;
+                        item.AvergeTime = item.RespositeTime /Count ;
                         TimeSpan ts = new TimeSpan(0, (int)item.AvergeTime, 0);
                         item.day = ts.Days;
                         item.hr = ts.Hours;
@@ -59,9 +61,10 @@ namespace Sue_Data2.Controllers
                     }
                     foreach (var item in list2)
                     {
+                        Count = Count + 1;
                         TimeTotal = TimeTotal + item.ResponseMinutes;
                         item.RespositeTime = TimeTotal;
-                        item.AvergeTime = item.RespositeTime / item.TicketSum;
+                        item.AvergeTime = item.RespositeTime / Count;
                         TimeSpan ts = new TimeSpan(0, (int)item.AvergeTime, 0);
                         item.day = ts.Days;
                         item.hr = ts.Hours;
@@ -80,9 +83,10 @@ namespace Sue_Data2.Controllers
                     }
                     foreach (var item in list3)
                     {
+                        Count = Count + 1;
                         TimeTotal = TimeTotal + item.ResponseMinutes;
                         item.RespositeTime = TimeTotal;
-                        item.AvergeTime = item.RespositeTime / item.TicketSum;
+                        item.AvergeTime = item.RespositeTime / Count;
                         TimeSpan ts = new TimeSpan(0, (int)item.AvergeTime, 0);
                         item.day = ts.Days;
                         item.hr = ts.Hours;
