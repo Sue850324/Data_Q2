@@ -21,9 +21,9 @@ namespace Suec_Data2.Models
 
         [Display(Name = "Ticket Total")]
         public double AvergeTime { set; get; }
-        public double hr { set; get; }
-        public double minute { set; get; }
-        public double day { set; get; }
+        public double Hr { set; get; }
+        public double Minute { set; get; }
+        public double Day { set; get; }
 
         public double RespositeTime { set; get; }
     }
