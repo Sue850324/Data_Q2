@@ -6,33 +6,30 @@
 </head>
 <body>
     <div>
-        <table border="1">
+        <table border="1" >
             <span id="spanA">
                 <tr>
-                    <td>Date</td>
-                    <td>Ticket</td>
-                    <td>Response Minutes</td>
-                    <td>Ticket Sum </td>
-                    <td>All Response Minutes</td>
-                    <td>Averge Response Minutes </td>
+                    <td align="center">Date</td>
+                    <td align="center">Ticket</td>
+                    <td align="center">Response Minutes</td>
                 </tr>
                 @if (Model != null)
                 {
                     foreach (var item in Model)
                     {
-                <tr>
-                    <td> @Html.DisplayFor(modelItem => item.Date)</td>
-                    <td> @Html.DisplayFor(modelItem => item.Ticket)</td>
-                    <td> @Html.DisplayFor(modelItem => item.ResponseMinutes)</td>
-                    <td> @Html.DisplayFor(modelItem => item.TicketSum)</td>
-                    <td> @Html.DisplayFor(modelItem => item.RespositeTime)</td>
-                    <td> @Html.DisplayFor(modelItem => item.Day) 天 @Html.DisplayFor(modelItem=>item.Hr) 小時 @Html.DisplayFor(modelItem=>item.Minute) 分鐘 </td>
-                </tr>
+                        <tr>
+                            <td align="center"> @Html.DisplayFor(modelItem => item.Date)</td>
+                            <td align="center"> @Html.DisplayFor(modelItem => item.Ticket)</td>
+                            <td align="center"> @Html.DisplayFor(modelItem => item.ResponseMinutes)</td>
+                        </tr>
                     }
                 }
 
             </span>
         </table>
+        <hr>
+        Ticket Sum:@Model.Sum(Model => Model.Ticket) | 平均回應時間: @ViewBag.Day 天  @ViewBag.Hr 時 @ViewBag.Minutes 分
+
     </div>
 </body>
 </html>

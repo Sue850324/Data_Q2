@@ -17,7 +17,7 @@ namespace Suec_Data2.Models
         public int ResponseMinutes { set; get; }
 
         [Display(Name = "Ticket Total")]
-        public int TicketSum { set; get; }
+        public int ToTalTicket { set; get; }
 
         [Display(Name = "Ticket Total")]
         public double AvergeTime { set; get; }
