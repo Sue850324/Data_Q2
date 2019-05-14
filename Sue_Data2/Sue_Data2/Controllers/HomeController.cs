@@ -14,7 +14,7 @@ namespace Sue_Data2.Controllers
     {
         public ActionResult Dashboard()
         {
-            DataModel dataModel = new DataModel();
+            DataViewModel dataModel = new DataViewModel();
             Random rnd = new Random();
             int ResponseTime = 0;
             int AverageTime = 0;
@@ -22,21 +22,20 @@ namespace Sue_Data2.Controllers
             int JsonFile = rnd.Next(0, 3);
             string[] File = { "~/App_Data/data1.json", "~/App_Data/data2.json", "~/App_Data/data3.json" };
             string ReadJson = System.IO.File.ReadAllText(Server.MapPath(File[JsonFile]));
-            List<DataModel> list = JsonConvert.DeserializeObject<List<DataModel>>(ReadJson);
+            dataModel.DataList = JsonConvert.DeserializeObject<List<DataModel>>(ReadJson);
 
-            foreach (var item in list)
+            foreach (var item in dataModel.DataList)
             {
                 Count = Count + 1;
                 ResponseTime = ResponseTime + item.ResponseMinutes;
                 AverageTime = ResponseTime / Count;
-                dataModel.AvergeTime = AverageTime;
             }
 
-            TimeSpan ts = new TimeSpan(0, (int)dataModel.AvergeTime, 0);
-            ViewBag.Day = ts.Days;
-            ViewBag.Hr = ts.Hours;
-            ViewBag.Minutes = ts.Minutes;
-            return View(list);
+            TimeSpan ts = new TimeSpan(0, (int)AverageTime, 0);
+            dataModel.Day = ts.Days;
+            dataModel.Hour = ts.Hours;
+            dataModel.Minutes = ts.Minutes;
+            return View(dataModel);
         }
 
     }

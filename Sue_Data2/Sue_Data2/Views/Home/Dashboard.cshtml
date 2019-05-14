@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Suec_Data2.Models.DataModel>
+﻿@model Suec_Data2.Models.DataViewModel
 
 <html>
 <head>
@@ -15,7 +15,7 @@
                 </tr>
                 @if (Model != null)
                 {
-                    foreach (var item in Model)
+                    foreach (var item in Model.DataList)
                     {
                         <tr>
                             <td align="center"> @Html.DisplayFor(modelItem => item.Date)</td>
@@ -28,7 +28,7 @@
             </span>
         </table>
         <hr>
-        Ticket Sum:@Model.Sum(Model => Model.Ticket) | 平均回應時間: @ViewBag.Day 天  @ViewBag.Hr 時 @ViewBag.Minutes 分
+        Ticket Sum:@Model.DataList.Sum(Model => Model.Ticket) | 平均回應時間: @Model.Day 天  @Model.Hour 時 @Model.Minutes 分
 
     </div>
 </body>
