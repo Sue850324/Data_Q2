@@ -3,32 +3,31 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/Table.css" rel="stylesheet" />
 </head>
 <body>
     <div>
-        <table border="1" >
-            <span id="spanA">
-                <tr>
-                    <td align="center">Date</td>
-                    <td align="center">Ticket</td>
-                    <td align="center">Response Minutes</td>
-                </tr>
-                @if (Model != null)
+        <table class="fancytable">
+            <tr class="headerrow">
+                <td align="center">Date</td>
+                <td align="center">Ticket</td>
+                <td align="center">Response Minutes</td>
+            </tr>
+            @if (Model != null)
+            {
+                foreach (var item in Model.DataList)
                 {
-                    foreach (var item in Model.DataList)
-                    {
-                        <tr>
-                            <td align="center"> @Html.DisplayFor(modelItem => item.Date)</td>
-                            <td align="center"> @Html.DisplayFor(modelItem => item.Ticket)</td>
-                            <td align="center"> @Html.DisplayFor(modelItem => item.ResponseMinutes)</td>
-                        </tr>
-                    }
+                    <tr class="datarowodd">
+                        <td align="center"> @Html.DisplayFor(modelItem => item.Date)</td>
+                        <td align="center"> @Html.DisplayFor(modelItem => item.Ticket)</td>
+                        <td align="center"> @Html.DisplayFor(modelItem => item.ResponseMinutes)</td>
+                    </tr>
                 }
-
-            </span>
+            }
         </table>
         <hr>
-        Ticket Sum:@Model.DataList.Sum(Model => Model.Ticket) | 平均回應時間: @Model.Day 天  @Model.Hour 時 @Model.Minutes 分
+        Ticket Sum:@Model.DataList.Sum(Model => Model.Ticket)
+        <br>  平均回應時間: @Model.Day 天  @Model.Hour 時 @Model.Minutes 分</br>
 
     </div>
 </body>

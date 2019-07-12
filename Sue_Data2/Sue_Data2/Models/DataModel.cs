@@ -19,9 +19,6 @@ namespace Suec_Data2.Models
         [Display(Name = "Ticket Total")]
         public int ToTalTicket { set; get; }
 
-        [Display(Name = "Ticket Total")]
-        public double AvergeTime { set; get; }
-
         public double RespositeTime { set; get; }
     }
 
